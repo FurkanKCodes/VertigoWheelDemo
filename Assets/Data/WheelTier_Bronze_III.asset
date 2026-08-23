@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9359a1f0173e384aa88096065698d0b, type: 3}
-  m_Name: WheelTier_Bronze_I
+  m_Name: WheelTier_Bronze_III
   m_EditorClassIdentifier: 
   _wheelBaseSprite: {fileID: 21300000, guid: c3eaca7834fb3d34fa9952f59a62ac32, type: 3}
   _indicatorSprite: {fileID: 21300000, guid: f3725e8793979bc4a92185ac14bb40ac, type: 3}
@@ -23,19 +23,19 @@ MonoBehaviour:
     - _value:
         _category: 1
         _itemName: Cash
-        _amount: 10
+        _amount: 25
         _icon: {fileID: 21300000, guid: d16265e05ebc0184fad7d25053bf84f1, type: 3}
       _weight: 60
     - _value:
         _category: 1
         _itemName: Cash
-        _amount: 50
+        _amount: 75
         _icon: {fileID: 21300000, guid: d16265e05ebc0184fad7d25053bf84f1, type: 3}
       _weight: 30
     - _value:
         _category: 1
         _itemName: Cash
-        _amount: 100
+        _amount: 150
         _icon: {fileID: 21300000, guid: d16265e05ebc0184fad7d25053bf84f1, type: 3}
       _weight: 10
   - _categoryType: 2
@@ -44,13 +44,13 @@ MonoBehaviour:
     - _value:
         _category: 2
         _itemName: Gold
-        _amount: 1
+        _amount: 3
         _icon: {fileID: 21300000, guid: 0deda3636bd2e624a9789d0c298909fe, type: 3}
       _weight: 70
     - _value:
         _category: 2
         _itemName: Gold
-        _amount: 3
+        _amount: 5
         _icon: {fileID: 21300000, guid: 0deda3636bd2e624a9789d0c298909fe, type: 3}
       _weight: 30
   - _categoryType: 4
@@ -59,13 +59,13 @@ MonoBehaviour:
     - _value:
         _category: 4
         _itemName: Small Chest
-        _amount: 1
+        _amount: 2
         _icon: {fileID: 21300000, guid: 46babded11a362540a01ead48ada432f, type: 3}
       _weight: 70
     - _value:
         _category: 4
         _itemName: Big Chest
-        _amount: 1
+        _amount: 2
         _icon: {fileID: 21300000, guid: 40e46e4f6eff4f44190e3a6223eb4109, type: 3}
       _weight: 30
   - _categoryType: 5
@@ -74,19 +74,19 @@ MonoBehaviour:
     - _value:
         _category: 5
         _itemName: Standard Chest
-        _amount: 1
+        _amount: 2
         _icon: {fileID: 21300000, guid: cd2c167642c713543ac3cd5c656d9439, type: 3}
       _weight: 50
     - _value:
         _category: 5
         _itemName: Bronze Chest
-        _amount: 1
+        _amount: 2
         _icon: {fileID: 21300000, guid: a69c5536e14a4634cba3693bef0c5628, type: 3}
       _weight: 35
     - _value:
         _category: 5
         _itemName: Silver Chest
-        _amount: 1
+        _amount: 2
         _icon: {fileID: 21300000, guid: f1c1b1bee0e46094eb1cfb21a5b80953, type: 3}
       _weight: 15
   - _categoryType: 7
@@ -95,31 +95,31 @@ MonoBehaviour:
     - _value:
         _category: 7
         _itemName: m26 grenade
-        _amount: 1
+        _amount: 2
         _icon: {fileID: 21300000, guid: c9e83dda910ee684bae5ac52cac565aa, type: 3}
       _weight: 20
     - _value:
         _category: 7
         _itemName: m67 Grenade
-        _amount: 1
+        _amount: 2
         _icon: {fileID: 21300000, guid: b9c221c83bb62f34484035f914d24c6a, type: 3}
       _weight: 20
     - _value:
         _category: 7
         _itemName: Molotov
-        _amount: 1
+        _amount: 2
         _icon: {fileID: 21300000, guid: 70d48c89061065644922a43ef421c904, type: 3}
       _weight: 20
     - _value:
         _category: 7
         _itemName: Neurostim Healtshot
-        _amount: 1
+        _amount: 2
         _icon: {fileID: 21300000, guid: 2cf05c23f0675d14ab63427e40d931b2, type: 3}
       _weight: 20
     - _value:
         _category: 7
         _itemName: Regenerator Healtshot
-        _amount: 1
+        _amount: 2
         _icon: {fileID: 21300000, guid: 3395e659e6229eb47a456ecd5742a80f, type: 3}
       _weight: 20
   - _categoryType: 3

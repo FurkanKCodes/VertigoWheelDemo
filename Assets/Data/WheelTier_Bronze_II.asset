@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9359a1f0173e384aa88096065698d0b, type: 3}
-  m_Name: WheelTier_Bronze_I
+  m_Name: WheelTier_Bronze_II
   m_EditorClassIdentifier: 
   _wheelBaseSprite: {fileID: 21300000, guid: c3eaca7834fb3d34fa9952f59a62ac32, type: 3}
   _indicatorSprite: {fileID: 21300000, guid: f3725e8793979bc4a92185ac14bb40ac, type: 3}
@@ -25,19 +25,19 @@ MonoBehaviour:
         _itemName: Cash
         _amount: 10
         _icon: {fileID: 21300000, guid: d16265e05ebc0184fad7d25053bf84f1, type: 3}
-      _weight: 60
+      _weight: 40
     - _value:
         _category: 1
         _itemName: Cash
         _amount: 50
         _icon: {fileID: 21300000, guid: d16265e05ebc0184fad7d25053bf84f1, type: 3}
-      _weight: 30
+      _weight: 40
     - _value:
         _category: 1
         _itemName: Cash
         _amount: 100
         _icon: {fileID: 21300000, guid: d16265e05ebc0184fad7d25053bf84f1, type: 3}
-      _weight: 10
+      _weight: 20
   - _categoryType: 2
     _weight: 17
     _outcomes:
@@ -46,13 +46,13 @@ MonoBehaviour:
         _itemName: Gold
         _amount: 1
         _icon: {fileID: 21300000, guid: 0deda3636bd2e624a9789d0c298909fe, type: 3}
-      _weight: 70
+      _weight: 50
     - _value:
         _category: 2
         _itemName: Gold
         _amount: 3
         _icon: {fileID: 21300000, guid: 0deda3636bd2e624a9789d0c298909fe, type: 3}
-      _weight: 30
+      _weight: 50
   - _categoryType: 4
     _weight: 15
     _outcomes:
@@ -61,13 +61,13 @@ MonoBehaviour:
         _itemName: Small Chest
         _amount: 1
         _icon: {fileID: 21300000, guid: 46babded11a362540a01ead48ada432f, type: 3}
-      _weight: 70
+      _weight: 55
     - _value:
         _category: 4
         _itemName: Big Chest
         _amount: 1
         _icon: {fileID: 21300000, guid: 40e46e4f6eff4f44190e3a6223eb4109, type: 3}
-      _weight: 30
+      _weight: 45
   - _categoryType: 5
     _weight: 5
     _outcomes:
@@ -76,19 +76,19 @@ MonoBehaviour:
         _itemName: Standard Chest
         _amount: 1
         _icon: {fileID: 21300000, guid: cd2c167642c713543ac3cd5c656d9439, type: 3}
-      _weight: 50
+      _weight: 40
     - _value:
         _category: 5
         _itemName: Bronze Chest
         _amount: 1
         _icon: {fileID: 21300000, guid: a69c5536e14a4634cba3693bef0c5628, type: 3}
-      _weight: 35
+      _weight: 40
     - _value:
         _category: 5
         _itemName: Silver Chest
         _amount: 1
         _icon: {fileID: 21300000, guid: f1c1b1bee0e46094eb1cfb21a5b80953, type: 3}
-      _weight: 15
+      _weight: 20
   - _categoryType: 7
     _weight: 15
     _outcomes:

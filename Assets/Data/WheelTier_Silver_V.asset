@@ -10,205 +10,247 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9359a1f0173e384aa88096065698d0b, type: 3}
-  m_Name: WheelTier_Bronze_I
+  m_Name: WheelTier_Silver_V
   m_EditorClassIdentifier: 
-  _wheelBaseSprite: {fileID: 21300000, guid: c3eaca7834fb3d34fa9952f59a62ac32, type: 3}
-  _indicatorSprite: {fileID: 21300000, guid: f3725e8793979bc4a92185ac14bb40ac, type: 3}
-  _hasBombSlot: 1
+  _wheelBaseSprite: {fileID: 21300000, guid: 95bebbc54662d294493025286f045920, type: 3}
+  _indicatorSprite: {fileID: 21300000, guid: 82eed4bd2b0f0874da3e313e31e01f90, type: 3}
+  _hasBombSlot: 0
   _totalSlotCount: 8
   _categories:
   - _categoryType: 1
-    _weight: 33
+    _weight: 20
     _outcomes:
     - _value:
         _category: 1
         _itemName: Cash
-        _amount: 10
+        _amount: 200
         _icon: {fileID: 21300000, guid: d16265e05ebc0184fad7d25053bf84f1, type: 3}
-      _weight: 60
+      _weight: 40
     - _value:
         _category: 1
         _itemName: Cash
-        _amount: 50
+        _amount: 3000
         _icon: {fileID: 21300000, guid: d16265e05ebc0184fad7d25053bf84f1, type: 3}
-      _weight: 30
+      _weight: 40
     - _value:
         _category: 1
         _itemName: Cash
-        _amount: 100
+        _amount: 10000
         _icon: {fileID: 21300000, guid: d16265e05ebc0184fad7d25053bf84f1, type: 3}
-      _weight: 10
+      _weight: 20
   - _categoryType: 2
-    _weight: 17
+    _weight: 15
     _outcomes:
     - _value:
         _category: 2
         _itemName: Gold
         _amount: 1
         _icon: {fileID: 21300000, guid: 0deda3636bd2e624a9789d0c298909fe, type: 3}
-      _weight: 70
+      _weight: 25
     - _value:
         _category: 2
         _itemName: Gold
-        _amount: 3
+        _amount: 10
         _icon: {fileID: 21300000, guid: 0deda3636bd2e624a9789d0c298909fe, type: 3}
-      _weight: 30
+      _weight: 50
+    - _value:
+        _category: 2
+        _itemName: Gold
+        _amount: 50
+        _icon: {fileID: 21300000, guid: 0deda3636bd2e624a9789d0c298909fe, type: 3}
+      _weight: 25
   - _categoryType: 4
-    _weight: 15
+    _weight: 10
     _outcomes:
     - _value:
         _category: 4
         _itemName: Small Chest
-        _amount: 1
+        _amount: 5
         _icon: {fileID: 21300000, guid: 46babded11a362540a01ead48ada432f, type: 3}
-      _weight: 70
+      _weight: 50
     - _value:
         _category: 4
         _itemName: Big Chest
-        _amount: 1
+        _amount: 3
         _icon: {fileID: 21300000, guid: 40e46e4f6eff4f44190e3a6223eb4109, type: 3}
-      _weight: 30
+      _weight: 50
   - _categoryType: 5
-    _weight: 5
+    _weight: 13
     _outcomes:
     - _value:
         _category: 5
         _itemName: Standard Chest
-        _amount: 1
+        _amount: 2
         _icon: {fileID: 21300000, guid: cd2c167642c713543ac3cd5c656d9439, type: 3}
-      _weight: 50
+      _weight: 40
     - _value:
         _category: 5
         _itemName: Bronze Chest
-        _amount: 1
+        _amount: 2
         _icon: {fileID: 21300000, guid: a69c5536e14a4634cba3693bef0c5628, type: 3}
-      _weight: 35
+      _weight: 40
     - _value:
         _category: 5
         _itemName: Silver Chest
         _amount: 1
         _icon: {fileID: 21300000, guid: f1c1b1bee0e46094eb1cfb21a5b80953, type: 3}
-      _weight: 15
+      _weight: 20
   - _categoryType: 7
-    _weight: 15
+    _weight: 12
     _outcomes:
     - _value:
         _category: 7
         _itemName: m26 grenade
-        _amount: 1
+        _amount: 7
         _icon: {fileID: 21300000, guid: c9e83dda910ee684bae5ac52cac565aa, type: 3}
       _weight: 20
     - _value:
         _category: 7
         _itemName: m67 Grenade
-        _amount: 1
+        _amount: 7
         _icon: {fileID: 21300000, guid: b9c221c83bb62f34484035f914d24c6a, type: 3}
       _weight: 20
     - _value:
         _category: 7
         _itemName: Molotov
-        _amount: 1
+        _amount: 7
         _icon: {fileID: 21300000, guid: 70d48c89061065644922a43ef421c904, type: 3}
       _weight: 20
     - _value:
         _category: 7
         _itemName: Neurostim Healtshot
-        _amount: 1
+        _amount: 7
         _icon: {fileID: 21300000, guid: 2cf05c23f0675d14ab63427e40d931b2, type: 3}
       _weight: 20
     - _value:
         _category: 7
         _itemName: Regenerator Healtshot
-        _amount: 1
+        _amount: 7
         _icon: {fileID: 21300000, guid: 3395e659e6229eb47a456ecd5742a80f, type: 3}
       _weight: 20
   - _categoryType: 3
-    _weight: 15
+    _weight: 14
     _outcomes:
     - _value:
         _category: 3
         _itemName: Pistol WP
-        _amount: 2
+        _amount: 10
         _icon: {fileID: 21300000, guid: 769b66ac3a07b2842a1beb00026d77ff, type: 3}
       _weight: 10
     - _value:
         _category: 3
         _itemName: Pistol WP
-        _amount: 5
+        _amount: 13
         _icon: {fileID: 21300000, guid: 769b66ac3a07b2842a1beb00026d77ff, type: 3}
       _weight: 5
     - _value:
         _category: 3
         _itemName: Knife WP
-        _amount: 2
+        _amount: 10
         _icon: {fileID: 21300000, guid: cd86d6f30e853754aabd28a815a9869f, type: 3}
       _weight: 10
     - _value:
         _category: 3
         _itemName: Knife WP
-        _amount: 5
+        _amount: 13
         _icon: {fileID: 21300000, guid: cd86d6f30e853754aabd28a815a9869f, type: 3}
       _weight: 5
     - _value:
         _category: 3
         _itemName: SMG WP
-        _amount: 2
+        _amount: 10
         _icon: {fileID: 21300000, guid: 21ace19ef87690c46ba04579d8cecc9b, type: 3}
       _weight: 10
     - _value:
         _category: 3
         _itemName: SMG WP
-        _amount: 5
+        _amount: 13
         _icon: {fileID: 21300000, guid: 21ace19ef87690c46ba04579d8cecc9b, type: 3}
       _weight: 4
     - _value:
         _category: 3
         _itemName: Rifle WP
-        _amount: 2
+        _amount: 10
         _icon: {fileID: 21300000, guid: a4cf12984f9c7f44384d4ada43e9dba1, type: 3}
       _weight: 10
     - _value:
         _category: 3
         _itemName: Rifle WP
-        _amount: 5
+        _amount: 13
         _icon: {fileID: 21300000, guid: a4cf12984f9c7f44384d4ada43e9dba1, type: 3}
       _weight: 4
     - _value:
         _category: 3
         _itemName: Shotgun WP
-        _amount: 2
+        _amount: 10
         _icon: {fileID: 21300000, guid: 866bd69af806d3f43b136b9b37f884ef, type: 3}
       _weight: 10
     - _value:
         _category: 3
         _itemName: Shotgun WP
-        _amount: 5
+        _amount: 13
         _icon: {fileID: 21300000, guid: 866bd69af806d3f43b136b9b37f884ef, type: 3}
       _weight: 4
     - _value:
         _category: 3
         _itemName: Armor WP
-        _amount: 2
+        _amount: 10
         _icon: {fileID: 21300000, guid: ddbd506307c8b8c49b3952c200c8ffe3, type: 3}
       _weight: 10
     - _value:
         _category: 3
         _itemName: Armor WP
-        _amount: 5
+        _amount: 13
         _icon: {fileID: 21300000, guid: ddbd506307c8b8c49b3952c200c8ffe3, type: 3}
       _weight: 4
     - _value:
         _category: 3
         _itemName: Sniper WP
-        _amount: 2
+        _amount: 10
         _icon: {fileID: 21300000, guid: 6eaa1985e739a08408041c9a46298ebf, type: 3}
       _weight: 10
     - _value:
         _category: 3
         _itemName: Sniper WP
-        _amount: 5
+        _amount: 13
         _icon: {fileID: 21300000, guid: 6eaa1985e739a08408041c9a46298ebf, type: 3}
       _weight: 4
+  - _categoryType: 6
+    _weight: 8
+    _outcomes:
+    - _value:
+        _category: 6
+        _itemName: Gold Chest
+        _amount: 1
+        _icon: {fileID: 21300000, guid: ffd4a9c028573894c890b1fb99c1d059, type: 3}
+      _weight: 50
+    - _value:
+        _category: 6
+        _itemName: Super Chest
+        _amount: 1
+        _icon: {fileID: 21300000, guid: 0a10f57969321094fa96dc2ac3d4a33a, type: 3}
+      _weight: 50
+  - _categoryType: 8
+    _weight: 8
+    _outcomes:
+    - _value:
+        _category: 8
+        _itemName: Aviator Glasses
+        _amount: 1
+        _icon: {fileID: 21300000, guid: 40569873de3c5234b9e2f60cdfe01694, type: 3}
+      _weight: 33
+    - _value:
+        _category: 8
+        _itemName: Baseball Cap
+        _amount: 1
+        _icon: {fileID: 21300000, guid: 021d768d6fc79fb48845d6821a2f32a2, type: 3}
+      _weight: 33
+    - _value:
+        _category: 8
+        _itemName: Pumpkin Helmet
+        _amount: 1
+        _icon: {fileID: 21300000, guid: 1dd72613db9b83f40868a1dbbb384964, type: 3}
+      _weight: 33
   _bombOutcome:
     _category: 0
     _itemName: Bomb
