@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7050dbe9297571b4490372d388b756cf, type: 3}
+  m_Name: WheelProgressionConfig
+  m_EditorClassIdentifier: 
+  _bronzeTiers:
+  - {fileID: 11400000, guid: e1f1907680d973f4c9da540854e1f9ee, type: 2}
+  - {fileID: 11400000, guid: a1ef402222793134f9ca384964ba9529, type: 2}
+  - {fileID: 11400000, guid: f0f5719335c2be946a4a502b21b559d2, type: 2}
+  - {fileID: 11400000, guid: 7838c0c80942e9d4e9eff338e99435cc, type: 2}
+  _silverTiers:
+  - {fileID: 11400000, guid: 84c0755db0194a24abf92c90f192c8cc, type: 2}
+  - {fileID: 11400000, guid: 6d0c81ed59804a0428a5a5072c4a80a7, type: 2}
+  - {fileID: 11400000, guid: da7f96eb2b1a8f4489526e9f62ecb425, type: 2}
+  - {fileID: 11400000, guid: e630e8b2be5404642a8ccaefb62e3823, type: 2}
+  - {fileID: 11400000, guid: 3f8b818fc32c355408287ba813b100bb, type: 2}
+  _goldTiers:
+  - {fileID: 11400000, guid: b7e9cb357f075a147bf701b82adb51b7, type: 2}
+  - {fileID: 11400000, guid: ccfa3b1b3288c44459498483b4baf97f, type: 2}
