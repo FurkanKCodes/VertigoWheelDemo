@@ -23,4 +23,7 @@ public class WheelTierConfigSO : ScriptableObject
 
     [SerializeField] private RewardOutcome _bombOutcome;
     public RewardOutcome BombOutcome => _bombOutcome;
+
+    [SerializeField] private WheelTierGroups _group;
+    public WheelTierGroups Group => _group;
 }
