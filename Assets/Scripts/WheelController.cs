@@ -46,25 +46,33 @@ public class WheelController : MonoBehaviour
     [SerializeField] private ResultCardView _resultCard;
     public ResultCardView ResultCard => _resultCard;
 
+    [SerializeField] private RewardSummaryView _rewardSummary;
+    public RewardSummaryView RewardSummary => _rewardSummary;
+
     private void OnValidate()
     {
         WheelSlotView[] found = GetComponentsInChildren<WheelSlotView>();
         _slots = new List<WheelSlotView>(found);
 
-        _wheelBaseImage = transform.Find("WheelVisual/WheelBaseVisual/ui_image_wheel_base").GetComponent<Image>();
+        _wheelBaseImage = transform.Find("ui_wheel_visual/ui_wheel_base_visual/ui_image_wheel_base").GetComponent<Image>();
 
-        _indicatorImage = transform.Find("Indicator").GetComponent<Image>();
+        _indicatorImage = transform.Find("ui_indicator").GetComponent<Image>();
 
-        _spinButton = transform.Find("SpinButton").GetComponent<Button>();
+        _spinButton = transform.Find("ui_spin_button").GetComponent<Button>();
 
-        _wheelVisualTransform = transform.Find("WheelVisual");
+        _wheelVisualTransform = transform.Find("ui_wheel_visual");
 
-        _zoneTitleText = transform.Find("Background/ui_text_zone_title").GetComponent<TMP_Text>();
+        _zoneTitleText = transform.Find("ui_background/ui_text_zone_title").GetComponent<TMP_Text>();
 
-        Transform resultCardTransform = transform.parent.Find("ResultCard");
+        Transform resultCardTransform = transform.parent.Find("ui_result_card");
         Debug.Log("Found Transform: " + resultCardTransform);
         _resultCard = resultCardTransform.GetComponent<ResultCardView>();
         Debug.Log("Found Component: " + _resultCard);
+
+        Transform rewardSummaryTransform = transform.parent.Find("ui_panel_reward_summary");
+        Debug.Log("Found Transform: " + rewardSummaryTransform);
+        _rewardSummary = rewardSummaryTransform.GetComponent<RewardSummaryView>();
+        Debug.Log("Found Component: " + _rewardSummary);
     }
 
     public void GenerateAndDisplay(int zone)
@@ -106,6 +114,7 @@ public class WheelController : MonoBehaviour
     private void HandleCashOutOrGiveUp()
     {
         _resultCard.Hide();
+        _rewardSummary.Clear();
         GenerateAndDisplay(1);
     }
 
@@ -125,6 +134,11 @@ public class WheelController : MonoBehaviour
             {
                 _spinButton.interactable = true;
                 RewardOutcome result = _currentOutcomes[targetIndex];
+                bool isBomb = result.Category == RewardCategoryType.Bomb;
+                if (!isBomb)
+                {
+                    _rewardSummary.AddReward(result);
+                }
                 bool canCashOut = _currentTierConfig.Group != WheelTierGroups.Bronze;
                 _resultCard.Show(result, canCashOut);
             });

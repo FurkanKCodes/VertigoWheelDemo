@@ -10,7 +10,4 @@ public enum WheelTierGroups
     Gold
 }
 
-public class WheelTierGroup : MonoBehaviour
-{
 
-}

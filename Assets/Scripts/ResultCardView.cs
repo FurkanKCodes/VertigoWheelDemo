@@ -21,17 +21,25 @@ public class ResultCardView : MonoBehaviour
     [SerializeField] private Button _giveUpButton;
     public Button GiveUpButton => _giveUpButton;
 
+    [SerializeField] private TMP_Text _nameText;
+    public TMP_Text NameText => _nameText;
+
+    [SerializeField] private TMP_Text _congratsText;
+    public TMP_Text CongratsText => _congratsText;
+
     public event System.Action OnOkClicked;
     public event System.Action OnCashOutClicked;
     public event System.Action OnGiveUpClicked;
 
     private void OnValidate()
     {
-        _icon = transform.Find("CardFrame/RewardIcon").GetComponent<Image>();
-        _amountText = transform.Find("CardFrame/AmountText").GetComponent<TMP_Text>();
-        _okButton = transform.Find("OkButton").GetComponent<Button>();
-        _cashOutButton = transform.Find("CashOutButton").GetComponent<Button>();
-        _giveUpButton = transform.Find("GiveUpButton").GetComponent<Button>();
+        _icon = transform.Find("ui_card_frame/ui_reward_icon").GetComponent<Image>();
+        _amountText = transform.Find("ui_card_frame/ui_amount_text").GetComponent<TMP_Text>();
+        _nameText = transform.Find("ui_card_frame/ui_text_reward_name_value").GetComponent<TMP_Text>();
+        _congratsText = transform.Find("ui_card_frame/ui_congrats_text").GetComponent<TMP_Text>();
+        _okButton = transform.Find("ui_ok_button").GetComponent<Button>();
+        _cashOutButton = transform.Find("ui_cash_out_button").GetComponent<Button>();
+        _giveUpButton = transform.Find("ui_give_up_button").GetComponent<Button>();
     }
 
     private void Awake()
@@ -58,6 +66,14 @@ public class ResultCardView : MonoBehaviour
         if (!isBomb)
         {
             _amountText.text = "x" + AmountFormatter.Format(outcome.Amount);
+            _nameText.text = outcome.ItemName;
+            _congratsText.text = "YOU WON!!!";
+        }
+        else
+        {
+            _nameText.text = "BOMB";
+            _congratsText.text = "YOU LOST!!!";
+
         }
 
         _okButton.gameObject.SetActive(!isBomb);
