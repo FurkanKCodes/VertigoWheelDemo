@@ -74,7 +74,7 @@ public class WheelController : MonoBehaviour
 
         _wheelVisualTransform = transform.Find("ui_wheel_visual");
 
-        _zoneTitleText = transform.Find("ui_background/ui_text_zone_title").GetComponent<TMP_Text>();
+        _zoneTitleText = transform.Find("ui_wheel_background/ui_text_zone_title").GetComponent<TMP_Text>();
 
         Transform resultCardTransform = transform.parent.Find("ui_result_card");
         Debug.Log("Found Transform: " + resultCardTransform);
