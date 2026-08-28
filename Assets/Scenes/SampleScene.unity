@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 75780008}
   - component: {fileID: 75780007}
   m_Layer: 5
-  m_Name: ui_reward_icon
+  m_Name: ui_reward_icon_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1602,7 +1602,7 @@ GameObject:
   - component: {fileID: 285671017}
   - component: {fileID: 285671016}
   m_Layer: 5
-  m_Name: ui_amount_text
+  m_Name: ui_amount_text_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2254,7 +2254,7 @@ GameObject:
   - component: {fileID: 473009834}
   - component: {fileID: 473009833}
   m_Layer: 5
-  m_Name: ui_slot_reward_6
+  m_Name: ui_slot_reward_6_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2400,7 +2400,7 @@ GameObject:
   - component: {fileID: 536841517}
   - component: {fileID: 536841516}
   m_Layer: 5
-  m_Name: ui_slot_reward_4
+  m_Name: ui_slot_reward_4_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2529,7 +2529,7 @@ GameObject:
   - component: {fileID: 584327490}
   - component: {fileID: 584327489}
   m_Layer: 5
-  m_Name: ui_congrats_text
+  m_Name: ui_congrats_text_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2997,7 +2997,7 @@ GameObject:
   - component: {fileID: 681963865}
   - component: {fileID: 681963864}
   m_Layer: 5
-  m_Name: ui_slot_reward_7
+  m_Name: ui_slot_reward_7_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3685,7 +3685,7 @@ GameObject:
   - component: {fileID: 998931727}
   - component: {fileID: 998931726}
   m_Layer: 5
-  m_Name: ui_slot_reward_3
+  m_Name: ui_slot_reward_3_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3874,7 +3874,7 @@ GameObject:
   - component: {fileID: 1097143554}
   - component: {fileID: 1097143553}
   m_Layer: 5
-  m_Name: ui_image_wheel_base
+  m_Name: ui_image_wheel_base_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4085,7 +4085,7 @@ GameObject:
   - component: {fileID: 1223805722}
   - component: {fileID: 1223805721}
   m_Layer: 5
-  m_Name: ui_text_zone_title
+  m_Name: ui_text_zone_title_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4490,7 +4490,7 @@ GameObject:
   - component: {fileID: 1232336534}
   - component: {fileID: 1232336533}
   m_Layer: 5
-  m_Name: ui_slot_reward_5
+  m_Name: ui_slot_reward_5_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4687,7 +4687,7 @@ GameObject:
   - component: {fileID: 1306647913}
   - component: {fileID: 1306647912}
   m_Layer: 5
-  m_Name: ui_slot_reward_1
+  m_Name: ui_slot_reward_1_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5679,7 +5679,7 @@ GameObject:
   - component: {fileID: 1631252499}
   - component: {fileID: 1631252498}
   m_Layer: 5
-  m_Name: ui_slot_reward_0
+  m_Name: ui_slot_reward_0_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5741,7 +5741,7 @@ GameObject:
   - component: {fileID: 1688183848}
   - component: {fileID: 1688183847}
   m_Layer: 5
-  m_Name: ui_slot_reward_2
+  m_Name: ui_slot_reward_2_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6158,7 +6158,7 @@ GameObject:
   - component: {fileID: 2020679037}
   - component: {fileID: 2020679036}
   m_Layer: 5
-  m_Name: ui_header_text
+  m_Name: ui_header_text_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

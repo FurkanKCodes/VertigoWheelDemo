@@ -29,10 +29,10 @@ public class ResultCardView : MonoBehaviour
 
     private void OnValidate()
     {
-        _icon = transform.Find("ui_card_frame/ui_reward_icon").GetComponent<Image>();
-        _amountText = transform.Find("ui_card_frame/ui_amount_text").GetComponent<TMP_Text>();
+        _icon = transform.Find("ui_card_frame/ui_reward_icon_value").GetComponent<Image>();
+        _amountText = transform.Find("ui_card_frame/ui_amount_text_value").GetComponent<TMP_Text>();
         _nameText = transform.Find("ui_card_frame/ui_text_reward_name_value").GetComponent<TMP_Text>();
-        _congratsText = transform.Find("ui_card_frame/ui_congrats_text").GetComponent<TMP_Text>();
+        _congratsText = transform.Find("ui_card_frame/ui_congrats_text_value").GetComponent<TMP_Text>();
         _okButton = transform.Find("ui_ok_button").GetComponent<Button>();
         _giveUpButton = transform.Find("ui_give_up_button").GetComponent<Button>();
     }

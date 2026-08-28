@@ -62,7 +62,7 @@ public class WheelController : MonoBehaviour
         WheelSlotView[] found = GetComponentsInChildren<WheelSlotView>();
         _slots = new List<WheelSlotView>(found);
 
-        _wheelBaseImage = transform.Find("ui_wheel_visual/ui_wheel_base_visual/ui_image_wheel_base").GetComponent<Image>();
+        _wheelBaseImage = transform.Find("ui_wheel_visual/ui_wheel_base_visual/ui_image_wheel_base_value").GetComponent<Image>();
 
         _indicatorImage = transform.Find("ui_indicator").GetComponent<Image>();
 
@@ -74,7 +74,7 @@ public class WheelController : MonoBehaviour
 
         _wheelVisualTransform = transform.Find("ui_wheel_visual");
 
-        _zoneTitleText = transform.Find("ui_wheel_background/ui_text_zone_title").GetComponent<TMP_Text>();
+        _zoneTitleText = transform.Find("ui_wheel_background/ui_text_zone_title_value").GetComponent<TMP_Text>();
 
         Transform resultCardTransform = transform.parent.Find("ui_result_card");
         Debug.Log("Found Transform: " + resultCardTransform);

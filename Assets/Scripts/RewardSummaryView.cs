@@ -29,7 +29,7 @@ public class RewardSummaryView : MonoBehaviour
     {
         _content = transform.Find("ui_scrollview_reward_list/Viewport/Content");
         _closeButton = transform.Find("ui_close_button").GetComponent<Button>();
-        _headerText = transform.Find("ui_scrollview_reward_list/ui_header_text").GetComponent<TMP_Text>();
+        _headerText = transform.Find("ui_scrollview_reward_list/ui_header_text_value").GetComponent<TMP_Text>();
     }
 
     private void Awake()
