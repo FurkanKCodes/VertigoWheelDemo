@@ -15,9 +15,6 @@ public class ResultCardView : MonoBehaviour
     [SerializeField] private Button _okButton;
     public Button OkButton => _okButton;
 
-    [SerializeField] private Button _cashOutButton;
-    public Button CashOutButton => _cashOutButton;
-
     [SerializeField] private Button _giveUpButton;
     public Button GiveUpButton => _giveUpButton;
 
@@ -28,7 +25,6 @@ public class ResultCardView : MonoBehaviour
     public TMP_Text CongratsText => _congratsText;
 
     public event System.Action OnOkClicked;
-    public event System.Action OnCashOutClicked;
     public event System.Action OnGiveUpClicked;
 
     private void OnValidate()
@@ -38,14 +34,12 @@ public class ResultCardView : MonoBehaviour
         _nameText = transform.Find("ui_card_frame/ui_text_reward_name_value").GetComponent<TMP_Text>();
         _congratsText = transform.Find("ui_card_frame/ui_congrats_text").GetComponent<TMP_Text>();
         _okButton = transform.Find("ui_ok_button").GetComponent<Button>();
-        _cashOutButton = transform.Find("ui_cash_out_button").GetComponent<Button>();
         _giveUpButton = transform.Find("ui_give_up_button").GetComponent<Button>();
     }
 
     private void Awake()
     {
         _okButton.onClick.AddListener(() => OnOkClicked?.Invoke());
-        _cashOutButton.onClick.AddListener(() => OnCashOutClicked?.Invoke());
         _giveUpButton.onClick.AddListener(() => OnGiveUpClicked?.Invoke());
     }
 
@@ -54,7 +48,7 @@ public class ResultCardView : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void Show(RewardOutcome outcome, bool canCashOut)
+    public void Show(RewardOutcome outcome)
     {
         gameObject.SetActive(true);
         _icon.sprite = outcome.Icon;
@@ -77,8 +71,6 @@ public class ResultCardView : MonoBehaviour
         }
 
         _okButton.gameObject.SetActive(!isBomb);
-
-        _cashOutButton.gameObject.SetActive(!isBomb && canCashOut);
 
         _giveUpButton.gameObject.SetActive(isBomb);
     }

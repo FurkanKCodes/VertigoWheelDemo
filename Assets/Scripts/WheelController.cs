@@ -49,6 +49,14 @@ public class WheelController : MonoBehaviour
     [SerializeField] private RewardSummaryView _rewardSummary;
     public RewardSummaryView RewardSummary => _rewardSummary;
 
+    [SerializeField] private Button _myRewardsButton;
+    public Button MyRewardsButton => _myRewardsButton;
+
+    [SerializeField] private Button _leaveButton;
+    public Button LeaveButton => _leaveButton;
+
+    private bool _resetOnRewardSummaryClose;
+
     private void OnValidate()
     {
         WheelSlotView[] found = GetComponentsInChildren<WheelSlotView>();
@@ -59,6 +67,10 @@ public class WheelController : MonoBehaviour
         _indicatorImage = transform.Find("ui_indicator").GetComponent<Image>();
 
         _spinButton = transform.Find("ui_spin_button").GetComponent<Button>();
+
+        _myRewardsButton = transform.Find("ui_my_rewards_button").GetComponent<Button>();
+
+        _leaveButton = transform.Find("ui_leave_button").GetComponent<Button>();
 
         _wheelVisualTransform = transform.Find("ui_wheel_visual");
 
@@ -83,6 +95,8 @@ public class WheelController : MonoBehaviour
         _currentZone = zone;
         
         _currentTierConfig = WheelProgressionResolver.GetConfigForZone(zone, _progressionConfig);
+
+        _leaveButton.interactable = _currentTierConfig.Group != WheelTierGroups.Bronze;
         
         _wheelBaseImage.sprite = _currentTierConfig.WheelBaseSprite;
         _indicatorImage.sprite = _currentTierConfig.IndicatorSprite;
@@ -101,8 +115,33 @@ public class WheelController : MonoBehaviour
     {
         _spinButton.onClick.AddListener(Spin);
         _resultCard.OnOkClicked += HandleOkClicked;
-        _resultCard.OnCashOutClicked += HandleCashOutOrGiveUp;
-        _resultCard.OnGiveUpClicked += HandleCashOutOrGiveUp;
+        _resultCard.OnGiveUpClicked += HandleGiveUpClicked;
+        _myRewardsButton.onClick.AddListener(HandleMyRewardsClicked);
+        _leaveButton.onClick.AddListener(HandleLeaveClicked);
+        _rewardSummary.OnCloseClicked += HandleRewardSummaryCloseClicked;
+    }
+
+    private void HandleMyRewardsClicked()
+    {
+        _resetOnRewardSummaryClose = false;
+        _rewardSummary.Show("My Rewards");
+    }
+
+    private void HandleLeaveClicked()
+    {
+        _resetOnRewardSummaryClose = true;
+        _rewardSummary.Show("My Rewards");
+    }
+
+    private void HandleRewardSummaryCloseClicked()
+    {
+        _rewardSummary.Hide();
+
+        if (_resetOnRewardSummaryClose)
+        {
+            _rewardSummary.Clear();
+            GenerateAndDisplay(1);
+        }
     }
 
     private void HandleOkClicked()
@@ -111,11 +150,11 @@ public class WheelController : MonoBehaviour
         GenerateAndDisplay(_currentZone + 1);
     }
 
-    private void HandleCashOutOrGiveUp()
+    private void HandleGiveUpClicked()
     {
         _resultCard.Hide();
-        _rewardSummary.Clear();
-        GenerateAndDisplay(1);
+        _resetOnRewardSummaryClose = true;
+        _rewardSummary.Show("Lost Rewards");
     }
 
     public void Spin()
@@ -128,6 +167,8 @@ public class WheelController : MonoBehaviour
 
         _spinButton.interactable = false;
 
+        _leaveButton.interactable = false;
+
         _wheelVisualTransform.DORotate(new Vector3(0f, 0f, targetZ), _spinDuration, RotateMode.FastBeyond360)
             .SetEase(Ease.OutCubic)
             .OnComplete(() =>
@@ -139,8 +180,7 @@ public class WheelController : MonoBehaviour
                 {
                     _rewardSummary.AddReward(result);
                 }
-                bool canCashOut = _currentTierConfig.Group != WheelTierGroups.Bronze;
-                _resultCard.Show(result, canCashOut);
+                _resultCard.Show(result);
             });
     }
 
