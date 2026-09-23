@@ -57,6 +57,9 @@ public class WheelController : MonoBehaviour
 
     private bool _resetOnRewardSummaryClose;
 
+    [SerializeField] private Image _premiumShine;
+    public Image PremiumShine => _premiumShine;
+
     private void OnValidate()
     {
         WheelSlotView[] found = GetComponentsInChildren<WheelSlotView>();
@@ -75,6 +78,8 @@ public class WheelController : MonoBehaviour
         _wheelVisualTransform = transform.Find("ui_wheel_visual");
 
         _zoneTitleText = transform.Find("ui_wheel_background/ui_text_zone_title_value").GetComponent<TMP_Text>();
+
+        _premiumShine = transform.Find("ui_wheel_background/ui_vfx_premium_shine").GetComponent<Image>();
 
         Transform resultCardTransform = transform.parent.Find("ui_result_card");
         Debug.Log("Found Transform: " + resultCardTransform);
@@ -97,6 +102,7 @@ public class WheelController : MonoBehaviour
         _currentTierConfig = WheelProgressionResolver.GetConfigForZone(zone, _progressionConfig);
 
         _leaveButton.interactable = _currentTierConfig.Group != WheelTierGroups.Bronze;
+        _spinButton.interactable = true;
         
         _wheelBaseImage.sprite = _currentTierConfig.WheelBaseSprite;
         _indicatorImage.sprite = _currentTierConfig.IndicatorSprite;
@@ -108,6 +114,15 @@ public class WheelController : MonoBehaviour
         for(int i = 0; i < _slots.Count; i++)
         {
             _slots[i].SetData(_currentOutcomes[i]);
+        }
+
+        bool isPremium = _currentTierConfig.Group != WheelTierGroups.Bronze;
+        _premiumShine.gameObject.SetActive(isPremium);
+
+        if (isPremium)
+        {
+            _premiumShine.DOKill();
+            _premiumShine.DOFade(0.15f, 1.2f).SetLoops(-1, LoopType.Yoyo);
         }
     }
 
@@ -173,14 +188,17 @@ public class WheelController : MonoBehaviour
             .SetEase(Ease.OutCubic)
             .OnComplete(() =>
             {
-                _spinButton.interactable = true;
                 RewardOutcome result = _currentOutcomes[targetIndex];
                 bool isBomb = result.Category == RewardCategoryType.Bomb;
                 if (!isBomb)
                 {
                     _rewardSummary.AddReward(result);
                 }
-                _resultCard.Show(result);
+
+                _slots[targetIndex].PlayWinAnimation(() =>
+                {
+                    _resultCard.Show(result);
+                });
             });
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class ResultCardView : MonoBehaviour
 {
@@ -27,6 +28,15 @@ public class ResultCardView : MonoBehaviour
     public event System.Action OnOkClicked;
     public event System.Action OnGiveUpClicked;
 
+    [SerializeField] private CanvasGroup _canvasGroup;
+    public CanvasGroup CanvasGroup => _canvasGroup;
+
+    [SerializeField] private Image _starFlash;
+    public Image StarFlash => _starFlash;
+
+    [SerializeField] private float _openDuration = 0.3f;
+    [SerializeField] private float _closeDuration = 0.2f;
+
     private void OnValidate()
     {
         _icon = transform.Find("ui_card_frame/ui_reward_icon_value").GetComponent<Image>();
@@ -35,6 +45,14 @@ public class ResultCardView : MonoBehaviour
         _congratsText = transform.Find("ui_card_frame/ui_congrats_text_value").GetComponent<TMP_Text>();
         _okButton = transform.Find("ui_ok_button").GetComponent<Button>();
         _giveUpButton = transform.Find("ui_give_up_button").GetComponent<Button>();
+
+        _canvasGroup = GetComponent<CanvasGroup>();
+        if (_canvasGroup == null)
+        {
+            _canvasGroup = gameObject.AddComponent<CanvasGroup>();
+        }
+
+        _starFlash = transform.Find("ui_card_frame/ui_vfx_star_flash").GetComponent<Image>();
     }
 
     private void Awake()
@@ -45,7 +63,11 @@ public class ResultCardView : MonoBehaviour
 
     public void Hide()
     {
-        gameObject.SetActive(false);
+        _canvasGroup.DOKill();
+        transform.DOKill();
+
+        _canvasGroup.DOFade(0f, _closeDuration)
+            .OnComplete(() => gameObject.SetActive(false));
     }
 
     public void Show(RewardOutcome outcome)
@@ -61,18 +83,36 @@ public class ResultCardView : MonoBehaviour
         {
             _amountText.text = "x" + AmountFormatter.Format(outcome.Amount);
             _nameText.text = outcome.ItemName;
-            _congratsText.text = "YOU WON!!!";
+            _congratsText.text = "CONGRATS";
         }
         else
         {
             _nameText.text = "BOMB";
-            _congratsText.text = "YOU LOST!!!";
+            _congratsText.text = "BOMB EXPLODED";
 
         }
 
         _okButton.gameObject.SetActive(!isBomb);
-
         _giveUpButton.gameObject.SetActive(isBomb);
+
+        _canvasGroup.DOKill();
+        transform.DOKill();
+
+        _canvasGroup.alpha = 0f;
+        transform.localScale = Vector3.one * 0.8f;
+
+        _canvasGroup.DOFade(1f, _openDuration);
+        transform.DOScale(1f, _openDuration).SetEase(Ease.OutBack);
+
+        if (_starFlash != null)
+        {
+            _starFlash.gameObject.SetActive(!isBomb);
+            if (!isBomb)
+            {
+                _starFlash.transform.localScale = Vector3.zero;
+                _starFlash.transform.DOScale(1f, _openDuration).SetEase(Ease.OutBack);
+            }
+        }
     }
 
 }

@@ -25,11 +25,23 @@ public class RewardSummaryView : MonoBehaviour
 
     private Dictionary<string, RewardRowView> _rowsByItemName = new Dictionary<string, RewardRowView>();
 
+    [SerializeField] private CanvasGroup _canvasGroup;
+    public CanvasGroup CanvasGroup => _canvasGroup;
+
+    [SerializeField] private float _openDuration = 0.3f;
+    [SerializeField] private float _closeDuration = 0.2f;
+
     private void OnValidate()
     {
         _content = transform.Find("ui_scrollview_reward_list/Viewport/Content");
         _closeButton = transform.Find("ui_close_button").GetComponent<Button>();
         _headerText = transform.Find("ui_scrollview_reward_list/ui_header_text_value").GetComponent<TMP_Text>();
+
+        _canvasGroup = GetComponent<CanvasGroup>();
+        if (_canvasGroup == null)
+        {
+            _canvasGroup = gameObject.AddComponent<CanvasGroup>();
+        }
     }
 
     private void Awake()
@@ -41,11 +53,24 @@ public class RewardSummaryView : MonoBehaviour
     {
         _headerText.text = headerText;
         gameObject.SetActive(true);
+
+        _canvasGroup.DOKill();
+        transform.DOKill();
+
+        _canvasGroup.alpha = 0f;
+        transform.localScale = Vector3.one * 0.8f;
+
+        _canvasGroup.DOFade(1f, _openDuration);
+        transform.DOScale(1f, _openDuration).SetEase(Ease.OutBack);
     }
 
     public void Hide()
     {
-        gameObject.SetActive(false);
+        _canvasGroup.DOKill();
+        transform.DOKill();
+
+        _canvasGroup.DOFade(0f, _closeDuration)
+            .OnComplete(() => gameObject.SetActive(false));
     }
 
     public void AddReward(RewardOutcome outcome)
