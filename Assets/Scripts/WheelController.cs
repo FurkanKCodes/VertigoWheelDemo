@@ -118,10 +118,13 @@ public class WheelController : MonoBehaviour
 
         bool isPremium = _currentTierConfig.Group != WheelTierGroups.Bronze;
         _premiumShine.gameObject.SetActive(isPremium);
+        _premiumShine.DOKill();
 
         if (isPremium)
         {
-            _premiumShine.DOKill();
+            Color c = _premiumShine.color;
+            c.a = 1f;
+            _premiumShine.color = c;
             _premiumShine.DOFade(0.15f, 1.2f).SetLoops(-1, LoopType.Yoyo);
         }
     }
