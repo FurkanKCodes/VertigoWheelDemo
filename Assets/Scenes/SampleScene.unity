@@ -692,7 +692,7 @@ MonoBehaviour:
   - {fileID: 681963864}
   _wheelBaseImage: {fileID: 1097143553}
   _indicatorImage: {fileID: 461922044}
-  _testZone: 5
+  _testZone: 1
   _spinButton: {fileID: 91027773}
   _wheelVisualTransform: {fileID: 1626341104}
   _spinDuration: 4
