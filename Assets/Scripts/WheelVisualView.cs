@@ -23,6 +23,9 @@ public class WheelVisualView : MonoBehaviour
     [SerializeField] private Image _indicatorImage;
     public Image IndicatorImage => _indicatorImage;
 
+    [SerializeField] private float _idleSpinDuration = 22f;
+    public float IdleSpinDuration => _idleSpinDuration;
+
     private void OnValidate()
     {
         WheelSlotView[] found = GetComponentsInChildren<WheelSlotView>();
@@ -57,6 +60,7 @@ public class WheelVisualView : MonoBehaviour
 
     public void Populate(WheelTierConfigSO tierConfig, IReadOnlyList<RewardOutcome> outcomes)
     {
+        _wheelVisualTransform.DOKill();
         _wheelVisualTransform.rotation = Quaternion.identity;
         _wheelBaseImage.sprite = tierConfig.WheelBaseSprite;
 
@@ -85,6 +89,21 @@ public class WheelVisualView : MonoBehaviour
                 _premiumShine.DOFade(0.15f, 1.2f).SetLoops(-1, LoopType.Yoyo);
             }
         }
+
+        StartIdleSpin();
+    }
+
+    public void StartIdleSpin()
+    {
+        _wheelVisualTransform.DOKill();
+        _wheelVisualTransform.DORotate(new Vector3(0f, 0f, 360f), _idleSpinDuration, RotateMode.FastBeyond360)
+            .SetEase(Ease.Linear)
+            .SetLoops(-1, LoopType.Incremental);
+    }
+
+    public void StopIdleSpin()
+    {
+        _wheelVisualTransform.DOKill();
     }
 
     private void OnDestroy()

@@ -181,10 +181,16 @@ public class WheelController : MonoBehaviour
         int targetIndex = Random.Range(0, slots.Count);
 
         float R = targetIndex * (360f / slots.Count);
-        float targetZ = 360f * _spinCount + R;
 
         _activeVisual.SpinButton.interactable = false;
         _leaveButton.interactable = false;
+
+        _activeVisual.StopIdleSpin();
+
+        float currentZ = _activeVisual.WheelVisualTransform.eulerAngles.z;
+
+        float delta = Mathf.Repeat(R - currentZ, 360f);
+        float targetZ = currentZ + 360f * _spinCount + delta;
 
         _activeVisual.WheelVisualTransform.DORotate(new Vector3(0f, 0f, targetZ), _spinDuration, RotateMode.FastBeyond360)
             .SetEase(Ease.OutCubic)

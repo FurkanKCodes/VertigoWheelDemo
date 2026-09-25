@@ -2940,6 +2940,7 @@ MonoBehaviour:
   _premiumShine: {fileID: 5159346528633424802}
   _spinButton: {fileID: 91027773}
   _indicatorImage: {fileID: 461922044}
+  _idleSpinDuration: 22
 --- !u!1 &5159346529754556744
 GameObject:
   m_ObjectHideFlags: 0

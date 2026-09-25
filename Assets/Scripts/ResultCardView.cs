@@ -34,6 +34,12 @@ public class ResultCardView : MonoBehaviour
     [SerializeField] private Image _starFlash;
     public Image StarFlash => _starFlash;
 
+    [SerializeField] private Image _starFlashBomb;
+    public Image StarFlashBomb => _starFlashBomb;
+
+    [SerializeField] private Image _starFlashBomb2;
+    public Image StarFlashBomb2 => _starFlashBomb2;
+
     [SerializeField] private float _openDuration = 0.3f;
     [SerializeField] private float _closeDuration = 0.2f;
 
@@ -53,6 +59,8 @@ public class ResultCardView : MonoBehaviour
         }
 
         _starFlash = transform.Find("ui_card_frame/ui_vfx_star_flash").GetComponent<Image>();
+        _starFlashBomb = transform.Find("ui_card_frame/ui_vfx_star_flash_bomb").GetComponent<Image>();
+        _starFlashBomb2 = transform.Find("ui_card_frame/ui_vfx_star_flash_bomb2").GetComponent<Image>();
     }
 
     private void Awake()
@@ -83,12 +91,12 @@ public class ResultCardView : MonoBehaviour
         {
             _amountText.text = "x" + AmountFormatter.Format(outcome.Amount);
             _nameText.text = outcome.ItemName;
-            _congratsText.text = "CONGRATS";
+            _congratsText.text = "";
         }
         else
         {
-            _nameText.text = "BOMB";
-            _congratsText.text = "BOMB EXPLODED";
+            _nameText.text = "";
+            _congratsText.text = "OH NO, A BOMB EXPLODED RIGHT IN YOUR HANDS!";
 
         }
 
@@ -104,13 +112,22 @@ public class ResultCardView : MonoBehaviour
         _canvasGroup.DOFade(1f, _openDuration);
         transform.DOScale(1f, _openDuration).SetEase(Ease.OutBack);
 
-        if (_starFlash != null)
+        if (_starFlash != null && _starFlashBomb != null && _starFlashBomb2 != null)
         {
             _starFlash.gameObject.SetActive(!isBomb);
+            _starFlashBomb.gameObject.SetActive(isBomb);
+            _starFlashBomb2.gameObject.SetActive(isBomb);
             if (!isBomb)
             {
                 _starFlash.transform.localScale = Vector3.zero;
                 _starFlash.transform.DOScale(1f, _openDuration).SetEase(Ease.OutBack);
+            }
+            else
+            {
+                _starFlashBomb.transform.localScale = Vector3.zero;
+                _starFlashBomb.transform.DOScale(1f, _openDuration).SetEase(Ease.OutBack);
+                _starFlashBomb2.transform.localScale = Vector3.zero;
+                _starFlashBomb2.transform.DOScale(1f, _openDuration).SetEase(Ease.OutBack);
             }
         }
     }
