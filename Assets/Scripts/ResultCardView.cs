@@ -25,6 +25,9 @@ public class ResultCardView : MonoBehaviour
     [SerializeField] private TMP_Text _congratsText;
     public TMP_Text CongratsText => _congratsText;
 
+    [SerializeField] private TMP_Text _congratsText2;
+    public TMP_Text CongratsText2 => _congratsText2;
+
     public event System.Action OnOkClicked;
     public event System.Action OnGiveUpClicked;
 
@@ -49,6 +52,7 @@ public class ResultCardView : MonoBehaviour
         _amountText = transform.Find("ui_card_frame/ui_amount_text_value").GetComponent<TMP_Text>();
         _nameText = transform.Find("ui_card_frame/ui_text_reward_name_value").GetComponent<TMP_Text>();
         _congratsText = transform.Find("ui_card_frame/ui_congrats_text_value").GetComponent<TMP_Text>();
+        _congratsText2 = transform.Find("ui_card_frame/ui_congrats_text_value2").GetComponent<TMP_Text>();
         _okButton = transform.Find("ui_ok_button").GetComponent<Button>();
         _giveUpButton = transform.Find("ui_give_up_button").GetComponent<Button>();
 
@@ -92,11 +96,13 @@ public class ResultCardView : MonoBehaviour
             _amountText.text = "x" + AmountFormatter.Format(outcome.Amount);
             _nameText.text = outcome.ItemName;
             _congratsText.text = "";
+            _congratsText2.text = "";
         }
         else
         {
             _nameText.text = "";
             _congratsText.text = "OH NO, A BOMB EXPLODED RIGHT IN YOUR HANDS!";
+            _congratsText2.text = "YOU LOST ALL THE REWARDS";
 
         }
 
